@@ -1,3 +1,6 @@
+close all;
+clear;
+
 % Define the path to the Excel file
 filePath = './Ag111_360nm_Data.xlsx';
 
@@ -18,7 +21,7 @@ for i = 1:size(data, 1)
 end
 
 figure;
-plot(abs(fft(data(1,:))));
+plot(abs(fftshift(data(1,:))));
 
 % figure;
 % imagesc(data);
