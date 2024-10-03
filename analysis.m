@@ -40,13 +40,6 @@ colorbar;
 figure;
 plot(timeAxisFs, data(1,:));
 
-% for loop runs through all the rows of the code. 
-% argument of the for loop stores the fast fourier transformed row into a row of the fftData matrix.
-
-% for i = 1:size(data, 1)
-%     fftData(i,:) = fft(data(i,:));
-% end
-
 % Plot the first row of the fast fourier transformed data matrix
 figure;
 plot(abs(fft(data(1,:))));
@@ -63,8 +56,13 @@ plot(abs(fftshift(fft(data(1,:)))));
 
 
 
+%%%%%%%%%%%%%   3D WORK %%%%%%%%%%%%%%%
+% for loop runs through all the rows of the code. 
+% argument of the for loop stores the fast fourier transformed row into a row of the fftData matrix.
 
-
+% for i = 1:size(data, 1)
+%     fftData(i,:) = fft(data(i,:));
+% end
 
 
 
