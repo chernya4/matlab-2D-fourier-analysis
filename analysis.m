@@ -35,6 +35,10 @@ fftData = zeros(size(data));
 figure;
 imagesc(timeAxisFs, energyAxisEv, data);
 colorbar;
+colorbar.Label.String = 'Intensity';
+xlabel('Time (fs)');
+ylabel('Energy (eV)');
+title('Raw Data');
 
 % Plot the first row of the data matrix
 figure;
@@ -50,9 +54,41 @@ plot(abs(fftshift(fft(data(1,:)))));
 
 
 
+%%%%%%
+% Create a new figure for the combined plots
+figure;
+
+% Plot the raw data with appropriate axes in the first subplot
+subplot(2, 2, 1);
+imagesc(timeAxisFs, energyAxisEv, data);
+hcb = colorbar;
+xlabel('Time (fs)');
+ylabel('Energy (eV)');
+title('Raw Data');
+
+hcb.Position = [0.92, 0.11, 0.02, 0.815]; % [left, bottom, width, height]
 
 
+% Plot the first row of the data matrix in the second subplot
+subplot(2, 2, 2);
+plot(timeAxisFs, data(1,:));
+xlabel('Time (fs)');
+ylabel('Intensity');
+title('First Row of Data Matrix');
 
+% Plot the first row of the fast fourier transformed data matrix in the third subplot
+subplot(2, 2, 3);
+plot(abs(fft(data(1,:))));
+xlabel('Frequency');
+ylabel('Magnitude');
+title('FFT of First Row');
+
+% Plot the first row of the fast fourier transformed and shifted data matrix in the fourth subplot
+subplot(2, 2, 4);
+plot(abs(fftshift(fft(data(1,:)))));
+xlabel('Frequency');
+ylabel('Magnitude');
+title('FFT Shift of First Row');
 
 
 
