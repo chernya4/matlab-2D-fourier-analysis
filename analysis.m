@@ -1,6 +1,7 @@
 close all;
 clear;
 
+
 % Define the path to the Excel file
 filePath = './Ag111_360nm_Data.xlsx';
 
@@ -31,42 +32,20 @@ timeAxisFs = linspace(startValue, endValue, numPoints);
 % Create a 2D matrix for the fast fourier transform data
 fftData = zeros(size(data));
 
-% Plot the raw data with appropriate axes.
-figure;
-imagesc(timeAxisFs, energyAxisEv, data);
-colorbar;
-colorbar.Label.String = 'Intensity';
-xlabel('Time (fs)');
-ylabel('Energy (eV)');
-title('Raw Data');
-
-% Plot the first row of the data matrix
-figure;
-plot(timeAxisFs, data(1,:));
-
-% Plot the first row of the fast fourier transformed data matrix
-figure;
-plot(abs(fft(data(1,:))));
-
-% Plot the first row of the fast fourier transformed and shifted data matrix
-figure;
-plot(abs(fftshift(fft(data(1,:)))));
-
-
 
 %%%%%%
 % Create a new figure for the combined plots
 figure;
 
 % Plot the raw data with appropriate axes in the first subplot
-subplot(2, 2, 1);
+ax = subplot(2, 2, 1);
 imagesc(timeAxisFs, energyAxisEv, data);
-hcb = colorbar;
+c = colorbar;
+c.Label.String = 'Intensity';
 xlabel('Time (fs)');
 ylabel('Energy (eV)');
 title('Raw Data');
 
-hcb.Position = [0.92, 0.11, 0.02, 0.815]; % [left, bottom, width, height]
 
 
 % Plot the first row of the data matrix in the second subplot
@@ -114,3 +93,25 @@ title('FFT Shift of First Row');
 % % disp(data(1:10, 1:10))
 
 % Just a Test for a Commit
+
+
+% % Plot the raw data with appropriate axes.
+% figure;
+% imagesc(timeAxisFs, energyAxisEv, data);
+% colorbar;
+% xlabel('Time (fs)');
+% ylabel('Energy (eV)');
+% title('Raw Data');
+
+% % Plot the first row of the data matrix
+% figure;
+% plot(timeAxisFs, data(1,:));
+
+% % Plot the first row of the fast fourier transformed data matrix
+% figure;
+% plot(abs(fft(data(1,:))));
+
+% % Plot the first row of the fast fourier transformed and shifted data matrix
+% figure;
+% plot(abs(fftshift(fft(data(1,:)))));
+
