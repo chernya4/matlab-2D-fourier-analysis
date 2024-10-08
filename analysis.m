@@ -39,15 +39,15 @@ disp("This is length of time axis" + L);
 % 1240 / 360 is the wavelength that we collected this data under
 % L is simply the dimension of the time axis
 
-PA = 15 .* 1240 ./ 360 ./ L .* (0:L-1)
+PA = 15 * 1240 / 360 / L * (0:L-1);
 
 %% POLARIZATION AXIS FOR SHIFTFFT %%
 
-shiftFFT_PA = 15 .* 1240 ./ 360 ./ L .* (-L/2:L/2-1)
+shiftFFT_PA = 15 .* 1240 ./ 360 ./ L .* (-L/2:L/2-1);
 
 % Create a 2D matrix for the fast fourier transform data
-fftData = zeros(size(data));
-
+nfft = nextpow2(L);
+fftData = zeros(size(data)); %%% NEED TO FIX THIS 
 
 %%%%%%
 % Create a new figure for the combined plots
