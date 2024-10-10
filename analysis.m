@@ -182,8 +182,6 @@ title('Filtered First Row Data (Second Harmonic)');
 % #                                                             #
 % ###############################################################
 
-
-
 % Perform FFT on each row of the data matrix
 fftData = fft(data, [], 2);
 
@@ -325,13 +323,7 @@ xlabel('Time (fs)');
 ylabel('Energy (eV)');
 title('Filtered Data Matrix (Second Harmonic)');
 
-
-
-
-
-
 % % Create a 2D matrix for the fast fourier transform data
 % nfft = nextpow2(L);
 % fftData = zeros(size(data)); %%% NEED TO FIX THIS 
-
 
